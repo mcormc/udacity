@@ -13,9 +13,9 @@ def star(color, sides, length, angle, distance):
         galileo.forward(length)
         galileo.left(720 / sides)
     galileo.hideturtle()  # just the star
+    
+for angle in [315, 270, 225, 180, 135, 90, 45, 0]:
+    star("violet", 5, 50, angle, 100)
 
-for angle in [180, 135, 90, 45, 0]:
-    star("red", 5, 50, angle, 100)
-
-for angle in [180, 135, 90, 45, 0]:
-    star("blue", 5, 30, angle, 60)
+for angle in [315, 270, 225, 180, 135, 90, 45, 0]:
+    star("white", 5, 30, angle, 60)
