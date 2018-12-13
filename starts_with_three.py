@@ -1,3 +1,5 @@
+# following functions offer worthless alternatives to startswith built-in fuction -- "banana".startswith("ban")
+
 def starts_with_v1(long, short):
     for position in range(len(short)):
         if long[position] != short[position]:
