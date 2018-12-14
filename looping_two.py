@@ -4,3 +4,4 @@ def count_character(string, target):
         if ch == target:
             total += 1
     return total
+# minor edit
