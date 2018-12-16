@@ -3,6 +3,10 @@ def extract_place(filename):
     place_name = parts[1] # Use the index operator to select the second list item
     return place_name
 
+# or we could rewrite the same function with one line:
+# def extract_place(filename):
+#    return filename.split("_")[1]
+
 # Here are some calls you can test it with:
 print(extract_place("2016-11-04_Berlin_09/42/22.jpg"))
 print(extract_place("2018-01-03_Oahu_21/51/57.jpg"))
