@@ -13,3 +13,9 @@ weather = [
 
 for e in weather:
     print(e['date'] + ' will be ' + e['state'] + ' with a temperature of ' + str(e['temp']))
+
+# for e in weather[0].values():
+#    print(e)
+
+# for e in weather[0]:
+#    print(e)
