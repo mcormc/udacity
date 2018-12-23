@@ -1,12 +1,21 @@
 class Dog:
-    def speak(self):
-        print("Bowow!")
 
-    def eat(self, string):
-        if string == "biscuit":
+    scientific_name = "Canis lupus familiaris"
+
+    def speak(self):
+        print("Woof!")
+
+    def eat(self, food):
+        if food == "biscuit":
             print("Yummy!")
         else:
-            print("That's not food!")
+
+    def learn_name(self, foo):
+        self.foo = name
+
+    def hear(self, words):
+        if self.name in words:
+            self.speak()
 
 class Cat:
     def speak(self):
