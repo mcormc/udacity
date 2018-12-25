@@ -12,13 +12,16 @@ in this game"""
 
 
 class Player:
+
     def move(self):
         return 'rock'
 
     def learn(self, my_move, their_move):
         pass
 
+
 class RandomPlayer(Player):
+
     def __init__(self):
         super().__init__()
 
@@ -27,21 +30,44 @@ class RandomPlayer(Player):
 
     def learn(self, my_move, their_move):
         pass
+
 
 class ReflectPlayer(Player):
+
     def __init__(self):
-        super().__init__()
+        self.move_temp = "rock"
 
     def move(self):
-        return random.choice(moves)
+        return self.move_temp
 
     def learn(self, my_move, their_move):
-        pass
+        self.move_temp = their_move
+
+
+class CyclePlayer(Player):
+    def __init__(self):
+        self.move_temp = "rock"
+
+    def move(self):
+        if self.move_temp == "rock":
+            return "paper"
+        elif self.move_temp == "paper":
+            return "scissors"
+        elif self.move_temp == "scissors":
+            return "rock"
+        else:
+            return "rock"
+
+    def learn(self, my_move, their_move):
+        self.move_temp = my_move
+
 
 class HumanPlayer(Player):
 
     def move(self):
+        # iterate for infinite times
         while True:
+            # https://wiki.python.org/moin/WhileLoop
             string = input("rock, paper, scissors? ")
             if string.lower() not in moves:
                 print("Please choose rock, paper or scissors.")
@@ -52,30 +78,32 @@ class HumanPlayer(Player):
     def learn(self, my_move, their_move):
         pass
 
+
 def beats(one, two):
     return ((one == 'rock' and two == 'scissors') or
             (one == 'scissors' and two == 'paper') or
             (one == 'paper' and two == 'rock'))
 
+
 class Game:
     def __init__(self, p1, p2):
         self.p1 = p1
         self.p2 = p2
-        self.count_win = 0
-        self.count_loss = 0
-        self.count_tie = 0
+        self.win = 0
+        self.loss = 0
+        self.tie = 0
 
     def play_round(self):
         move1 = self.p1.move()
         move2 = self.p2.move()
-        print(f"\nPlayer 1: {move1}  Player 2: {move2}")
+        print(f"\nPlayer 1: {move1} Player 2: {move2}")
         if beats(move1, move2):
-            self.count_win += 1
+            self.win += 1
         elif beats(move2, move1):
-            self.count_loss += 1
+            self.loss += 1
         else:
-            self.count_tie += 1
-        print(f"\nScore - Player 1: {self.count_win} Player 2: {self.count_loss} Tie: {self.count_tie}\n\n")
+            self.tie += 1
+        print(f"Score - P1: {self.win} P2: {self.loss} Tie: {self.tie}\n\n")
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
@@ -84,13 +112,15 @@ class Game:
         for round in range(3):
             print(f"Round {round}:")
             self.play_round()
-        if self.count_win > self.count_loss:
-            print("Game over. Player 1 wins.")
-        elif self.count_win < self.count_loss:
-            print("Game over. Player 2 wins.")
+        if self.win > self.loss:
+            print(f"Game over. Player 1 wins (P1: {self.win} P2: {self.loss})")
+        elif self.win < self.loss:
+            print(f"Game over. Player 2 wins (P2: {self.loss} P1: {self.win})")
         else:
-            print("Game over. Player 1 ties Player 2.")
+            print(f"Game over. It's a tie. (P1: {self.win} P2: {self.loss})")
+        print(f"\n\n\n")
+
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), RandomPlayer())
+    game = Game(HumanPlayer(), CyclePlayer())
     game.play_game()
