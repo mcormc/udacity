@@ -108,16 +108,19 @@ class Game:
         self.p2.learn(move2, move1)
 
     def play_game(self):
-        print("Game start!")
+        print("\n\033[31;1mGAME START!\033[0m\n")
         for round in range(3):
-            print(f"Round {round}:")
+            print(f"\033[32;1;4mRound {round}\033[0m")
             self.play_round()
         if self.win > self.loss:
-            print(f"Game over. Player 1 wins (P1: {self.win} P2: {self.loss})")
+            print(f"\033[31;1;4mGame over.\033[0m "),
+            print(f"Player 1 wins (P1: {self.win} P2: {self.loss})")
         elif self.win < self.loss:
-            print(f"Game over. Player 2 wins (P2: {self.loss} P1: {self.win})")
+            print(f"\033[31;1;4mGame over.\033[0m "),
+            print(f"Player 2 wins (P2: {self.loss} P1: {self.win})")
         else:
-            print(f"Game over. It's a tie. (P1: {self.win} P2: {self.loss})")
+            print(f"\033[31;1;4mGame over.\033[0m "),
+            print(f"It's a tie. (P1: {self.win} P2: {self.loss})")
         print(f"\n\n\n")
 
 
