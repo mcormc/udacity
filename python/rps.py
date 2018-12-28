@@ -14,7 +14,7 @@ in this game"""
 class Player:
 
     def move(self):
-        return 'rock'
+        return moves[0]
 
     def learn(self, my_move, their_move):
         pass
@@ -68,12 +68,12 @@ class HumanPlayer(Player):
         # iterate for infinite times
         while True:
             # https://wiki.python.org/moin/WhileLoop
-            string = input("rock, paper, scissors? ")
-            if string.lower() not in moves:
+            choice = input("rock, paper, scissors? ")
+            if choice.lower() not in moves:
                 print("Please choose rock, paper or scissors.")
             else:
                 break
-        return string
+        return choice
 
     def learn(self, my_move, their_move):
         pass
@@ -108,7 +108,7 @@ class Game:
         self.p2.learn(move2, move1)
 
     def play_game(self):
-        print("\n\033[31;1mGAME START!\033[0m\n")
+        print("\033[31;1mGAME START!\033[0m\n")
         for round in range(3):
             print(f"\033[32;1;4mRound {round}\033[0m")
             self.play_round()
