@@ -1,0 +1,60 @@
+/* add your CSS here */
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #222222;
+  background-color: #282828;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+ul, p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.container {
+  width: 900px;
+  margin: 15px auto;
+}
+
+.card {
+    border: 1px solid #999999;
+    padding: 10px;
+    box-shadow: 5px 5px #000000;
+    margin: 0 auto;
+    width: 302px;
+    background-color: #ffffff;
+}
+
+.img-dinosaur {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid #999999;
+}
+
+.card-inner {
+  width: 280px;
+  text-align: left;
+  border: 1px solid #999999;
+  padding: 10px;
+}
