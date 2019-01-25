@@ -41,3 +41,4 @@ switch (option) {
     console.log("You selected option 6.");
     break; // technically, not needed
 }
+
