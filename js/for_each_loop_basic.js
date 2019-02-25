@@ -5,3 +5,8 @@ donuts.forEach(function(donut) {
   donut = donut.toUpperCase();
   console.log(donut);
 });
+
+// Prints:
+// JELLY DONUT HOLE
+// CHOCOLATE DONUT HOLE
+// GLAZED DONUT HOLE
