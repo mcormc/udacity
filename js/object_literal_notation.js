@@ -8,7 +8,7 @@ var sister = {
   paintPicture: function() { return "Sarah paints!"; } // method
 };
 
-sister.paintPicture();
+sister.paintPicture(); // returns "Sarah paints!"
 
 
 
@@ -23,3 +23,5 @@ sister.parents // dot notation - also returns ["alice", "andy"]
 // whenever you call it. The syntax for this is pretty much exactly the same as how you defined 
 // the properties of the object. The only difference is, the value in the key:value pair will 
 // be a function.
+
+sister.name // returns "Sarah"
