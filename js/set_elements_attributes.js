@@ -11,3 +11,7 @@ mainHeading.nextElementSibling.setAttribute('id', 'heading-sibling');
 
 // use the newly added ID to access that element
 document.querySelector('#heading-sibling').style.backgroundColor = 'red';
+
+// following is shorter code for previous three lines...
+
+mainHeading.nextElementSibling.style.backgroundColor = 'red';
